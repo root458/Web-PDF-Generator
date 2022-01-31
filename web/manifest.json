@@ -1,13 +1,13 @@
 {
-    "name": "web_pdf_generator",
-    "short_name": "web_pdf_generator",
+    "name": "Generate PDF Files",
+    "short_name": "PDF Generator",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
     "description": "A web app that fetches data from a server and generates pdf files containing the data",
     "orientation": "portrait-primary",
-    "prefer_related_applications": false,
+    "prefer_related_applications": true,
     "icons": [
         {
             "src": "icons/Icon-192.png",
