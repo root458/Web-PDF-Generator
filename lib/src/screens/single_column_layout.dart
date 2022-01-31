@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:web_pdf_generator/src/screens/components/title_section.dart';
 
+import 'components/data_table.dart';
+import 'components/generation_section.dart';
+
 class SingleColumnLayout extends StatelessWidget {
   const SingleColumnLayout({Key? key}) : super(key: key);
 
@@ -21,8 +24,24 @@ class SingleColumnLayout extends StatelessWidget {
           SizedBox(
             width: _size.width,
             height: _size.height * .8,
-            child: const Center(
-              child: Text('Body'),
+            child: Column(
+              children: [
+                Flexible(
+                    flex: 3,
+                    child: PDFGenerationSection(
+                      height: _size.height * .8 * .3,
+                      width: _size.width * .7,
+                    )),
+                const Divider(
+                  thickness: 2,
+                ),
+                Flexible(
+                    flex: 7,
+                    child: DisplayDataTable(
+                      height: _size.height * .8 * .7,
+                      width: _size.width * .8,
+                    )),
+              ],
             ),
           ),
         ],
