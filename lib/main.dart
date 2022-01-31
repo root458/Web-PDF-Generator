@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Generate PDF files',
       theme: ThemeData(
+        fontFamily: 'Euclid',
         primarySwatch: Colors.deepPurple,
       ),
       home: const HomePage(),
