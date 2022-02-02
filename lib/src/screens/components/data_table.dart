@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:web_pdf_generator/src/services/database_service.dart';
 
 class DisplayDataTable extends StatelessWidget {
-  const DisplayDataTable({Key? key, required this.height, required this.width, }) : super(key: key);
+  const DisplayDataTable({
+    Key? key,
+    required this.height,
+    required this.width,
+  }) : super(key: key);
   final double height;
   final double width;
 
@@ -15,43 +20,60 @@ class DisplayDataTable extends StatelessWidget {
           interactive: true,
           isAlwaysShown: true,
           child: ListView(children: [
-            Table(
-              border: TableBorder.all(),
-              columnWidths: const {
-                0: FractionColumnWidth(0.1),
-                1: FractionColumnWidth(0.35),
-                2: FractionColumnWidth(0.35),
-                3: FractionColumnWidth(0.2),
-              },
-              defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-              children: [
-                _buildRow(['#', 'First Name', 'Second Name', 'ID Number'],
-                    isHeader: true),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-                _buildRow(['1', 'John', 'Weke', '3335698']),
-              ],
-            ),
+            FutureBuilder<List<List>>(
+                initialData: const [
+                  ['0', 'First Name', 'Second Name', '00000000']
+                ],
+                future: DatabaseService.getData(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    // Get the data
+                    List<List>? _customers = snapshot.data;
+
+                    return Table(
+                      border: TableBorder.all(),
+                      columnWidths: const {
+                        0: FractionColumnWidth(0.1),
+                        1: FractionColumnWidth(0.35),
+                        2: FractionColumnWidth(0.35),
+                        3: FractionColumnWidth(0.2),
+                      },
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.bottom,
+                      children: _buildTableRecords(_customers!),
+                    );
+                  } else {
+                    return Table(
+                      border: TableBorder.all(),
+                      columnWidths: const {
+                        0: FractionColumnWidth(0.1),
+                        1: FractionColumnWidth(0.35),
+                        2: FractionColumnWidth(0.35),
+                        3: FractionColumnWidth(0.2),
+                      },
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.bottom,
+                      children: _buildTableRecords([
+                        ['0', 'First Name', 'Second Name', '00000000']
+                      ]),
+                    );
+                  }
+                }),
           ]),
         ),
       ),
     );
+  }
+
+  List<TableRow> _buildTableRecords(List customers) {
+    customers.insert(0, ['#', 'First Name', 'Second Name', 'ID Number']);
+    return customers.map((customerDetails) {
+      if (customerDetails[0] == '#') {
+        return _buildRow(customerDetails, isHeader: true);
+      } else {
+        return _buildRow(customerDetails);
+      }
+    }).toList();
   }
 
   TableRow _buildRow(List<String> listOfStrings, {bool isHeader = false}) {

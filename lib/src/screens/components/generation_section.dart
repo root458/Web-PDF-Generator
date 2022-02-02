@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_pdf_generator/src/services/database_service.dart';
 import 'package:web_pdf_generator/src/services/generate_pdf.dart';
 
 class PDFGenerationSection extends StatelessWidget {
@@ -22,9 +23,16 @@ class PDFGenerationSection extends StatelessWidget {
                 style: ButtonStyle(
                   elevation: MaterialStateProperty.all<double>(2.0),
                 ),
-                onPressed: () {
-                  // Generate PDF
-                  GeneratePDF.generatePDF(['Witt', 'Koyo', '37719961']);
+                onPressed: () async {
+                  List<List> _customers = await DatabaseService.getData();
+                  // Generate PDFs
+                  for (var customerDetails in _customers) {
+                    GeneratePDF.generatePDF([
+                      customerDetails[1],
+                      customerDetails[2],
+                      customerDetails[3]
+                    ]);
+                  }
                 },
                 label: const Text('Generate PDFs',
                     style: TextStyle(overflow: TextOverflow.ellipsis))),
