@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_pdf_generator/src/services/generate_pdf.dart';
 
 class PDFGenerationSection extends StatelessWidget {
   const PDFGenerationSection(
@@ -16,33 +17,17 @@ class PDFGenerationSection extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              children: [
-                const Text('Set output directory:'),
-                const SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
-                    style: ButtonStyle(
-                        elevation: MaterialStateProperty.all<double>(2.0),
-                        // minimumSize: MaterialStateProperty.all<Size>(
-                        //     Size(width * .7, height * .15)),
-                        // maximumSize: MaterialStateProperty.all<Size>(
-                        //     Size(width * .75, height * .2))
-                        ),
-                    onPressed: () {},
-                    child: const Text('Choose folder', style: TextStyle(overflow: TextOverflow.ellipsis),)),
-              ],
-            ),
             ElevatedButton.icon(
                 icon: const Icon(Icons.picture_as_pdf_outlined),
                 style: ButtonStyle(
-                    elevation: MaterialStateProperty.all<double>(2.0),
-                    // fixedSize: MaterialStateProperty.all<Size>(
-                    //     Size(width * .7, height * .15))
-                    ),
-                onPressed: () {},
-                label: const Text('Generate PDFs', style: TextStyle(overflow: TextOverflow.ellipsis))),
+                  elevation: MaterialStateProperty.all<double>(2.0),
+                ),
+                onPressed: () {
+                  // Generate PDF
+                  GeneratePDF.generatePDF(['Witt', 'Koyo', '37719961']);
+                },
+                label: const Text('Generate PDFs',
+                    style: TextStyle(overflow: TextOverflow.ellipsis))),
           ],
         ),
       ),
