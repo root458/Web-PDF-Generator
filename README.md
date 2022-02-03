@@ -39,7 +39,7 @@ to:
 <base href="/web/">
 ```
 
-After setting up Xampp, copy the web folder and paste in the directory <a>C:\xampp\htdocs\</a> for <a>Windows</a> or <a>/opt/lampp/htdocs</a> on <a>Linux</a> (This may require elevated privileges)
+After setting up Xampp, copy the web folder and paste in the directory C:\xampp\htdocs\ for <a>Windows</a> or <a>/opt/lampp/htdocs</a> on <a>Linux</a> (This may require elevated privileges)
 
 Also, paste the <a>databasefiles</a> folder in the same directory.
 
