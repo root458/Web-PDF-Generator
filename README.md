@@ -15,7 +15,7 @@ Download the project.
 ```bash
 git clone https://github.com/root458/Web-PDF-Generator.git
 ```
-Enable Flutter Web to be able to run the project on a Web Browser (For Flutter versions earlier than Flutter 2.8).
+Enable Flutter Web to be able to run the project on a Web Browser (You will then need to restart your Editor or IDE).
 ```bash
 flutter config --enable-web
 ```
@@ -43,14 +43,14 @@ After setting up Xampp, copy the web folder and paste in the directory <b>C:\xam
 
 Also, paste the <b>databasefiles</b> folder in the same directory.
 
-# Set up Xampp
+## Set up Xampp
 To set up Xampp, follow the guide [here](https://www.apachefriends.org/download.html).
 
 Set up the database, from where the data will be fetched.
 
 Use the <a href="#">customers.sql</a> file provided.
 
-# Important!
+## Important!
 Check the <a>databasefiles/db.php</a> file and ensure that database set up conforms with the details in the file.
 
 ## Usage
