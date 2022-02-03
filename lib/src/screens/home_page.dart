@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, boxConstraints) {
-      if (boxConstraints.maxWidth > 600) {
+      if (boxConstraints.maxWidth > 840) {
         return const TwoColumnLayout();
       } else {
         return const SingleColumnLayout();

@@ -54,7 +54,7 @@ class DisplayDataTable extends StatelessWidget {
                       defaultVerticalAlignment:
                           TableCellVerticalAlignment.bottom,
                       children: _buildTableRecords([
-                        ['0', 'First Name', 'Second Name', '00000000']
+                        ['1', '', '', '']
                       ]),
                     );
                   }
