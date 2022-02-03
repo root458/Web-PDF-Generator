@@ -39,9 +39,9 @@ to:
 <base href="/web/">
 ```
 
-After setting up Xampp, copy the web folder and paste in the directory <b>C:\xampp\htdocs\</b> for <b>Windows</b> or <b>/opt/lampp/htdocs</b> on <b>Linux</b> (This may require elevated privileges)
+After setting up Xampp, copy the web folder and paste in the directory <a>C:\xampp\htdocs\</a> for <a>Windows</a> or <a>/opt/lampp/htdocs</a> on <a>Linux</a> (This may require elevated privileges)
 
-Also, paste the <b>databasefiles</b> folder in the same directory.
+Also, paste the <a>databasefiles</a> folder in the same directory.
 
 ## Set up Xampp
 To set up Xampp, follow the guide [here](https://www.apachefriends.org/download.html).
