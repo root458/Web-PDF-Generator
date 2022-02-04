@@ -55,7 +55,9 @@ Check the <a>databasefiles/db.php</a> file and ensure that database set up confo
 
 ## Usage
 
-Add your own data to the database table and see the output on pressing the <a>GENERATE PDFs</a> button.
+On your favourite web broswer, enter the link [http://localhost/web/] to view the web application.
+
+You can add your own data to the database table and see the output on pressing the <a>GENERATE PDFs</a> button.
 Have fun!
 
 ## Contributing
